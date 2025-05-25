@@ -19,7 +19,7 @@ const conn =
       port: parseInt(env.SINGLESTORE_PORT),
       user: env.SINGLESTORE_USERNAME,
       password: env.SINGLESTORE_PASSWORD,
-      database: env.SINGLESTORE_PASSWORD,
+      database: env.SINGLESTORE_DB,
       ssl: {},
       maxIdle: 0
     });

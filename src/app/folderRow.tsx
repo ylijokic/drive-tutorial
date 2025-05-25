@@ -1,10 +1,10 @@
 import { Folder as FolderIcon } from "lucide-react";
-import type { Folder } from "~/lib/mock-data";
+import type { folders_table } from "~/server/db/schema";
 
 const FolderRow = (
     props: { 
-        folder: Folder, 
-        handleFolderClick: () => void 
+        folder: typeof folders_table.$inferSelect; 
+        handleFolderClick: () => void;
     }
 ) => {
     const { folder, handleFolderClick } = props;

@@ -1,8 +1,8 @@
 import { FileIcon } from "lucide-react";
-import type { File } from "~/lib/mock-data";
+import type { files_table } from "~/server/db/schema";
 
 const FileRow = (
-    props: { file: File }
+    props: { file: typeof files_table.$inferSelect }
 ) => {
     const { file } = props;
 
