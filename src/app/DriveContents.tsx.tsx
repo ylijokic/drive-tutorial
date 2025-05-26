@@ -1,6 +1,5 @@
 "use client"
 
-import { useMemo } from "react"
 import { Upload, ChevronRight } from "lucide-react"
 import Link from "next/link"
 
@@ -8,19 +7,12 @@ import { Button } from '../components/ui/button'
 import FolderRow from "./folderRow"
 import FileRow from "./fileRow"
 import type { files_table, folders_table } from "~/server/db/schema"
-import type { Folder } from "~/lib/mock-data"
 
 export default function DriveContents(props: { 
     files: typeof files_table.$inferSelect[];
     folders: typeof folders_table.$inferSelect[];
+    parents: typeof folders_table.$inferSelect[];
 }) {
-
-  const breadcrumbs = useMemo(() => {
-    const breadcrumbs: Folder[] = [];
-
-    return breadcrumbs
-  }, []);
-
   const handleUpload = () => {
     alert("Upload functionality would be implemented here")
   }
@@ -36,7 +28,7 @@ export default function DriveContents(props: {
             >
               My Drive
             </Link>
-            {breadcrumbs.map((folder) => (
+            {props.parents.map((folder) => (
               <div key={folder.id} className="flex items-center">
                 <ChevronRight className="mx-2 text-gray-500" size={16} />
                 <Link
